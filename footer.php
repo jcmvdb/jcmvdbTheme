@@ -50,7 +50,7 @@
             printf(
                 wp_kses_post(get_theme_mod('palmeria_footer_text',
                     sprintf(
-                        _x('%2$s &copy; %1$s All Rights Reserved.<br> <span style="opacity: .8;">Powered by <a href="https://jcmvdb.com" rel="nofollow">jcmvdb</a>.</span>', 'Default footer text. %1$s - current year, %2$s - site title.', 'palmeria'),
+                        _x('%2$s &copy; %1$s All Rights Reserved.<br> <span style="opacity: .8;">Made by <a href="https://jcmvdb.com" rel="nofollow">jcmvdb</a>.</span>', 'Default footer text. %1$s - current year, %2$s - site title.', 'palmeria'),
                         $current_year,
                         get_bloginfo('name')
                     )

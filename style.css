@@ -71,3 +71,12 @@
 .site-content {
     border-radius: 10px 10px 0 0;
 }
+
+.filterGames {
+    width: 20%;
+    float:left;
+}
+
+.socials {
+    margin-left: 5%;
+}
