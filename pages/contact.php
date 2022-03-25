@@ -14,7 +14,7 @@ get_header();
         <a href="https://www.twitch.tv/jcmvdb" target="_blank"><i class="fab fa-twitch"> jcmvdb</i></a><br>
         <a href="" target="_blank"><i class="fab fa-linkedin"> jcmvdb</i></a><br>
         <a href="" target="_blank"><i class="fab fa-github"> jcmvdb</i></a><br>
-        <p><i class="fab fa-mailchimp"> jcmvdb@gmail.com</i></p><br>
+        <p><i class="fab fa-mailchimp"> jcmvdbzakelijk@gmail.com</i></p><br>
     </div>
     <!--    <div>-->
     <!--        <h2>Klachten of vragen?</h2>-->
