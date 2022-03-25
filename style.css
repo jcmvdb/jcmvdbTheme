@@ -24,7 +24,7 @@
 }
 
 .absolute-sidebar {
-	width: 50%;
+    width: 50%;
 }
 
 #loginform-custom {
@@ -41,7 +41,7 @@
     text-align: center;
 }
 
-.social-footer i{
+.social-footer i {
     color: #afb2bb;
     padding: 5px;
     border: 1px solid #afb2bb;
@@ -49,13 +49,13 @@
     margin: 2.5px;
 }
 
-.social-footer i:hover{
+.social-footer i:hover {
     color: #262627;
     background-color: #afb2bb;
     /*border-color: #262626*/
 }
 
-.social-footer i:active{
+.social-footer i:active {
     border-color: #5a5a5e;
 }
 
@@ -80,7 +80,7 @@
 
 .filterGames {
     width: 20%;
-    float:left;
+    float: left;
 }
 
 .socials {
@@ -92,7 +92,6 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px 10px 0 0;
-    background-color: green;
 }
 
 .filterGamesP {
