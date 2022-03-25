@@ -68,6 +68,12 @@
     border-radius: 10px;
 }
 
+@media (max-width: 991px) {
+    .main-navigation {
+        background-color: transparent;
+    }
+}
+
 .site-content {
     border-radius: 10px 10px 0 0;
 }
@@ -79,4 +85,16 @@
 
 .socials {
     margin-left: 5%;
+}
+
+#wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px 10px 0 0;
+    background-color: green;
+}
+
+.filterGamesP {
+    border: 1px solid grey;
 }
