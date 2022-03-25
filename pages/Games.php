@@ -19,16 +19,9 @@ if (in_array('administrator', (array)$user->roles)) {
 
     <h1 class="Title mb-5">Games</h1>
     <br><br>
-    <select class="filterGames" id="Platform">
-        <option value=""></option>
-        <option value="1">Playstation 4</option>
-        <option value="2">Nintendo Switch</option>
-        <option value="3">Nintendo 64</option>
-        <option value="4">Nintendo Gameboy advance</option>
-        <option value="5">Nintendo Gameboy Colour</option>
-        <option value="6">Nintendo DS</option>
-        <option value="7">PC</option>
-    </select>
+<!--    <select class="filterGames" id="Platform" disabled>-->
+<!--    </select>-->
+    <p class="filterGames filterGamesP"></p>
     <select class="filterGames" id="Platform">
         <option value=""></option>
         <option value="1">Playstation 4</option>
