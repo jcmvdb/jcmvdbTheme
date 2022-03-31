@@ -6,60 +6,112 @@
 $user = wp_get_current_user();
 get_header();
 
-$games = $wpdb->get_results('
-        SELECT * FROM `Games` `g`
-        LEFT JOIN `Platform` `p`
-        ON `g`.`PlatformId` = `p`.`PlatformId`
-        LEFT JOIN `Form` `f`
-        ON `g`.`FormId` = `f`.`FormId`
-        WHERE 1
-');
+$games = $wpdb->get_results('SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId`WHERE 1');
 
 if (in_array('administrator', (array)$user->roles)) {
     ?>
 
-    <h1 class="Title">Game Change</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4>Search for a game in the list</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Naam</th>
-            <th scope="col">Uitgever</th>
-            <th scope="col">Form</th>
-            <th scope="col">Platform</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $i = 1;
-        foreach ($games as $gamesItem) {
-            ?>
-            <tr>
-                <th scope="row"><?php echo $i; ?></th>
-<!--                <td>--><?php //echo $gamesItem->Name; ?><!--</td>-->
-                <input type="text" placeholder="<?php echo $gamesItem->Name ?>" value="<?php echo $gamesItem->Name ?>">
-                <td><?php echo $gamesItem->Developer; ?></td>
-                <td><?php echo $gamesItem->Form; ?></td>
-                <td><?php echo $gamesItem->Platform; ?></td>
-            </tr>
-            <?php
-            $i++;
-        }
-        ?>
-        </tbody>
-    </table>
+                                <form action="" method="GET">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search game">
+                                        <button type="submit" class="btn btn-primary">Search</button>
+                                    </div>
+                                </form>
 
-    <?php
-        foreach ($games as $gameItem) {}
-    ?>
-    <form action="">
-        <input type="text" placeholder="<?php echo $gamesItem->Name ?>" value="<?php echo $gamesItem->Name ?>" name="<?php echo $gamesItem->Name ?>">
-        <input type="text" placeholder="<?php echo $gamesItem->Name ?>" value="<?php echo $gamesItem->Name ?>" name="<?php echo $gamesItem->Name ?>">
-        <input type="text" placeholder="<?php echo $gamesItem->Name ?>" value="<?php echo $gamesItem->Name ?>" name="<?php echo $gamesItem->Name ?>">
-        <input type="text" placeholder="<?php echo $gamesItem->Name ?>" value="<?php echo $gamesItem->Name ?>" name="<?php echo $gamesItem->Name ?>">
-        <input type="submit" value="submit" name="submit">
-    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Game</th>
+                                <th>Developer</th>
+                                <th>Form</th>
+                                <th>Platform</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $con = mysqli_connect("localhost","root","root","jcmvdbcom");
+
+                            if(isset($_GET['search']))
+                            {
+                                $filtervalues = $_GET['search'];
+//                                $query = "SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId` WHERE CONCAT(Name) LIKE '%$filtervalues%' ";
+//                                $query_run = mysqli_query($con, $query);
+                                $gamesearch = $wpdb->get_results("SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId` WHERE CONCAT(Name) LIKE '%$filtervalues%' ");
+//                                echo "Found " . count($gamesearch) . " games";
+                                if($gamesearch > 0)
+                                {
+                                    $i = 1;
+                                    foreach($gamesearch as $items)
+                                    {
+                                        ?>
+                                        <tr>
+                                            <td><?= $i; ?></td>
+                                            <td><?= $items->Name ?></td>
+                                            <td><?= $items->Developer ?></td>
+                                            <td><?= $items->Form ?></td>
+                                            <td><?= $items->Platform ?></td>
+                                        </tr>
+                                        <?php
+                                        $i++;
+                                    }
+                                }
+                                else
+                                {
+                                    ?>
+                                    <tr>
+                                        <td colspan="5">No games found with that in the name</td>
+                                    </tr>
+                                    <?php
+                                }
+                            } else {
+//                            $filtervalues = $_GET['search'];
+//                                $query = 'SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId` WHERE 1';
+//                                $query_run = mysqli_query($con, $query);
+                                $i = 1;
+                                foreach($games as $items)
+                                {
+                                    ?>
+                                    <tr>
+                                        <td><?= $i ?></td>
+                                        <td><?= $items->Name ?></td>
+                                        <td><?= $items->Developer ?></td>
+                                        <td><?= $items->Form ?></td>
+                                        <td><?= $items->Platform ?></td>
+                                    </tr>
+                                    <?php
+                                    $i++;
+                                }
+                            }
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <?php
 } else {
