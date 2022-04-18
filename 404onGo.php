@@ -3,16 +3,17 @@
 
         <section class="error-404 not-found">
             <header class="page-header">
-                <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'palmeria' ); ?></h1>
+                <h1 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'palmeria'); ?></h1>
             </header><!-- .page-header -->
 
             <div class="page-content">
-                <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try search?', 'palmeria' ); ?></p>
+                <p><?php esc_html_e('It looks like nothing was found at this location. Maybe try search?', 'palmeria'); ?></p>
 
                 <?php
                 get_search_form();
                 ?>
-                <a href="<?php home_url();?>" class="button"><?php echo esc_html__('Go to home page', 'palmeria');?></a>
+                <a href="<?php home_url(); ?>"
+                   class="button"><?php echo esc_html__('Go to home page', 'palmeria'); ?></a>
             </div>
 
         </section><!-- .error-404 -->

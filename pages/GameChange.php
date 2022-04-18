@@ -24,7 +24,9 @@ if (in_array('administrator', (array)$user->roles)) {
 
                                 <form action="" method="GET">
                                     <div class="input-group mb-3">
-                                        <input type="text" name="search" value="<?php if(isset($_GET['search'])){echo $_GET['search']; } ?>" class="form-control" placeholder="Search game">
+                                        <input type="text" name="search" value="<?php if (isset($_GET['search'])) {
+                                            echo $_GET['search'];
+                                        } ?>" class="form-control" placeholder="Search game">
                                         <button type="submit" class="btn btn-primary">Search</button>
                                     </div>
                                 </form>
@@ -50,20 +52,14 @@ if (in_array('administrator', (array)$user->roles)) {
                             </thead>
                             <tbody>
                             <?php
-                            $con = mysqli_connect("localhost","root","root","jcmvdbcom");
+                            $con = mysqli_connect("localhost", "root", "root", "jcmvdbcom");
 
-                            if(isset($_GET['search']))
-                            {
+                            if (isset($_GET['search'])) {
                                 $filtervalues = $_GET['search'];
-//                                $query = "SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId` WHERE CONCAT(Name) LIKE '%$filtervalues%' ";
-//                                $query_run = mysqli_query($con, $query);
                                 $gamesearch = $wpdb->get_results("SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId` WHERE CONCAT(Name) LIKE '%$filtervalues%' ");
-//                                echo "Found " . count($gamesearch) . " games";
-                                if($gamesearch > 0)
-                                {
+                                if ($gamesearch > 0) {
                                     $i = 1;
-                                    foreach($gamesearch as $items)
-                                    {
+                                    foreach ($gamesearch as $items) {
                                         ?>
                                         <tr>
                                             <td><?= $i; ?></td>
@@ -75,9 +71,7 @@ if (in_array('administrator', (array)$user->roles)) {
                                         <?php
                                         $i++;
                                     }
-                                }
-                                else
-                                {
+                                } else {
                                     ?>
                                     <tr>
                                         <td colspan="5">No games found with that in the name</td>
@@ -85,12 +79,8 @@ if (in_array('administrator', (array)$user->roles)) {
                                     <?php
                                 }
                             } else {
-//                            $filtervalues = $_GET['search'];
-//                                $query = 'SELECT * FROM `Games` `g`LEFT JOIN `Platform` `p`ON `g`.`PlatformId` = `p`.`PlatformId`LEFT JOIN `Form` `f`ON `g`.`FormId` = `f`.`FormId` WHERE 1';
-//                                $query_run = mysqli_query($con, $query);
                                 $i = 1;
-                                foreach($games as $items)
-                                {
+                                foreach ($games as $items) {
                                     ?>
                                     <tr>
                                         <td><?= $i ?></td>
@@ -122,12 +112,13 @@ if (in_array('administrator', (array)$user->roles)) {
 
             <section class="error-404 not-found">
                 <header class="page-header">
-                    <h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'palmeria' ); ?></h1>
+                    <h1 class="page-title"><?php esc_html_e('Oops! That page can&rsquo;t be found.', 'palmeria'); ?></h1>
                 </header><!-- .page-header -->
 
                 <div class="page-content">
-                    <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try search?', 'palmeria' ); ?></p>
-                    <a href="<?php home_url();?>" class="button"><?php echo esc_html__('Go to home page', 'palmeria');?></a>
+                    <p><?php esc_html_e('It looks like nothing was found at this location. Maybe try search?', 'palmeria'); ?></p>
+                    <a href="<?php home_url(); ?>"
+                       class="button"><?php echo esc_html__('Go to home page', 'palmeria'); ?></a>
                 </div>
 
             </section><!-- .error-404 -->

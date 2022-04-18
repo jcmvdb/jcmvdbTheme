@@ -21,7 +21,8 @@
             <a href="https://www.twitch.tv/jcmvdb"><i class="fab fa-twitch"></i></a>
             <a href=""><i class="fab fa-linkedin"></i></a>
             <a href=""><i class="fab fa-github"></i></a>
-        </div><br>
+        </div>
+        <br>
         <?php
         if (has_nav_menu('menu-2')):
             wp_nav_menu(array(

@@ -152,12 +152,7 @@ if (is_user_logged_in()) {
                                         <?php print_r($item->Platform) ?>
                                     </div>
                                 </div>
-                            <?php } else {
-//                                echo "<pre>";
-//                                var_dump($gameArray);
-//                                echo "</pre>";
-//                                echo count($gameArray);
-                            }
+                            <?php }
                         }
 
                         ?>
@@ -173,6 +168,7 @@ if (is_user_logged_in()) {
                     }
                     echo $count;
                 }
+
                 ?>
 
                 <div class="card content">
@@ -191,7 +187,6 @@ if (is_user_logged_in()) {
                                 ['Nintendo Gameboy Colour', <?php echo AmountOfGames($wpdb, 5); ?>],
                                 ['Nintendo DS', <?php echo AmountOfGames($wpdb, 6); ?>],
                                 ['PC', <?php echo AmountOfGames($wpdb, 7); ?>],
-                                //['Nintendo 64', <?php //echo $nintendo64Count ?>//],
                             ]);
 
                             var options = {
