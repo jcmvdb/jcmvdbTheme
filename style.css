@@ -97,3 +97,7 @@
 .filterGamesP {
     border: 1px solid grey;
 }
+
+#loginform-custom input {
+    border-radius: 5px;
+}
