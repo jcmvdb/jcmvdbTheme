@@ -16,11 +16,11 @@
 <footer id="colophon" class="site-footer">
     <div class="wrapper footer-wrapper">
         <div class="text-center social-footer">
-            <a href="https://twitter.com/Jcmvdb1"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/jcmvdb1/"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.twitch.tv/jcmvdb"><i class="fab fa-twitch"></i></a>
-            <a href="https://www.linkedin.com/in/jeroen-maassen-van-den-brink-01b7a3206/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/jcmvdb"><i class="fab fa-github"></i></a>
+            <a target="_blank" href="https://twitter.com/Jcmvdb1"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.instagram.com/jcmvdb1/"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.twitch.tv/jcmvdb"><i class="fab fa-twitch"></i></a>
+            <a target="_blank" href="https://www.linkedin.com/in/jeroen-maassen-van-den-brink-01b7a3206/"><i class="fab fa-linkedin"></i></a>
+            <a target="_blank" href="https://github.com/jcmvdb"><i class="fab fa-github"></i></a>
         </div>
         <br>
         <?php
